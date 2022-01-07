@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 // const Employee = require("./lib/Employee")
 const fs = require('fs');
 const generateHtml = require('./src/generateHTML');
+// const generateJs = require('./assets/js/script');
 
 // create array of employee questions for user to input
 const questions = [];

@@ -4,8 +4,7 @@
 
 // function to generate html
 function generateHTML (data) {
-  return `
-  <!DOCTYPE html>
+  return `<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -16,32 +15,34 @@ function generateHTML (data) {
   </head>
   <body>
     <hero class="d-flex">
-      <h1 class="col text-center bg-warning">
+      <h1 class="p-5 col text-center bg-warning">
         My Team
       </h1>
     </hero>
-    <main class="d-flex">
-      <section class="card">
+    <main class="m-2 d-flex">
+      <section class="card m-2">
         <div class="card-header">
           ${data.name}
         </div>
         <div class="card-body justify-content-">
           ${data.title}<br>
           ${data.github}<br>
+          ${data.otherinfo}<br>
 
         </div>
       </section>
-      <section>
+      <section class="card m-2">
         <div class="card-header">
           ${data.name}
         </div>
         <div class="card-body justify-content-">
-          ${data.title}
-          ${data.github}
+          ${data.title}<br>
+          ${data.github}<br>
+          ${data.otherinfo}<br>
         </div>
       </section>
     </main>
-    call a function that generates cards
+    <script src="../assets/js/script.js"></script>
   </body>
   </html>
   `
