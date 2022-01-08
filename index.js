@@ -1,12 +1,18 @@
+// require all engineer, intern, employee files here
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+const Manager = require('./lib/Manager');
+// do not need to require employee
+
 const inquirer = require('inquirer');
-// const Employee = require("./lib/Employee")
+
 const fs = require('fs');
 const generateHtml = require('./src/generateHTML');
 // const generateJs = require('./assets/js/script');
 
 // create array of employee questions for user to input
-const questions = [];
-
+const teamArray = [];
+console.log(teamArray);
 // create a function to write html 
 function writeToFile(htmlCode) {
   fs.writeFileSync("./output/index.html", htmlCode)
@@ -19,12 +25,26 @@ function init (userInput){
       type: 'text',
       name: 'name',
       message: 'What is your name?'
+    },
+    {
+      type: 'text',
+      name: 'email',
+      message: 'employee email'
+    },
+    {
+      type: 'text',
+      name: 'id',
+      message: 'what is the employee id number?'
     }
-  ]).then(userInput => {
+  ])
+  // this.employees.push(new manager(name, id, email, office number)) to array 
+  // this createEmployee()
+  .then(userInput => {
     const htmlCode = generateHtml(userInput)
     writeToFile(htmlCode);
-    console.log(htmlCode);
+    console.log('html file created successfully')
   });
+  
 }
 
 init();
