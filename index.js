@@ -19,35 +19,118 @@ function writeToFile(htmlCode) {
 }
 
 // create function to call inquirer
-function init (userInput){
-  return inquirer.prompt([
+function employeeQ (extraPrompt, role){
+   inquirer.prompt([
     {
-      type: 'text',
+      type: 'input',
       name: 'name',
-      message: 'What is your name?'
+      message: 'What is your name? (Required)'
     },
     {
-      type: 'text',
+      type: 'input',
       name: 'email',
-      message: 'employee email'
+      message: 'What is your work email address?'
     },
     {
-      type: 'text',
+      type: 'input',
       name: 'id',
-      message: 'what is the employee id number?'
+      message: 'what is your employee id number?'
     }
   ])
-  // this.employees.push(new manager(name, id, email, office number)) to array 
+  
+  // employees.push(new manager(name, id, email, office number)) to array 
   // this createEmployee()
   .then(userInput => {
-    const htmlCode = generateHtml(userInput)
-    writeToFile(htmlCode);
-    console.log('html file created successfully')
+    if(role === 'manager'){
+      teamArray.push(new Manager(userInput.name, extraPrompt, userInput.id, userInput.email))
+    }
+    else if (role === 'intern'){
+      teamArray.push(new Intern(userInput.name, extraPrompt, userInput.id, userInput.email))      
+    }
+    else if (role === 'engineer'){
+      teamArray.push(new Engineer(userInput.name, extraPrompt, userInput.id, userInput.email))      
+    }
+    createEmployeeQ()
+
+    
   });
   
 }
 
-init();
+function createManagerQ (){
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'number',
+      message: 'What is the office number?'
+    }
+]).then(({ number }) => {
+  employeeQ(number, 'manager')
+})
+}
+
+function createEmployeeQ (){
+  inquirer.prompt([
+    {
+      type: 'list',
+      name: 'employee',
+      message: 'Do you want to create another employee?',
+      choices: ['yes', 'no']
+    }
+  ]).then(({ employee }) => {
+    if(employee == 'yes'){
+      whichEmployeeQ()
+    } else {
+      const htmlCode = generateHtml(teamArray)
+      writeToFile(htmlCode);
+      console.log('html file created successfully')
+      console.log(teamArray)
+    }
+  })
+}
+
+function whichEmployeeQ (){
+  inquirer.prompt([
+    {
+      type: 'list',
+      name: 'employee',
+      message: 'Which employee do you want to create?',
+      choices: ['engineer', 'intern']
+    }
+  ]).then(({ employee }) => {
+    if(employee == 'engineer'){
+      createEngineerQ()
+    } else {
+      createInternQ()
+    }
+  })
+} 
+
+function createInternQ (){
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'school',
+      message: 'What is the name of their school?'
+    }
+]).then(({ school }) => {
+  employeeQ(school, 'intern')
+})
+}
+
+function createEngineerQ (){
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'github',
+      message: 'What is the name of their github account?'
+    }
+]).then(({ github }) => {
+  employeeQ(github, 'engineer')
+})
+}
+
+createManagerQ ()
 
 //const bob = new Character("bob", 30, 30, 25)
 //console.log(bob.isAlive())

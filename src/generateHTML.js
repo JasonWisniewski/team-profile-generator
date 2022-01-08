@@ -1,6 +1,25 @@
 // have a function that returns html based on user input to index
 
-// function to check how many managers there are
+function cardCreator (data){
+  // based off user input of employees added
+  // we are going to for loop every employee
+  var ud = '';
+
+  for(let i=0; i < data.length; i++){
+    ud +=`<section class="card m-2">
+        <div class="card-header">
+          ${data[i].name}
+        </div>
+        <div class="card-body justify-content-">
+          ${data[i].role}<br>
+          ${data[i].email}<br>
+          ${data[i].special}<br>
+        </div>
+      </section>`
+    // were going to add card html here
+  }
+  return ud;
+}
 
 // function to generate html
 function generateHTML (data) {
@@ -19,28 +38,9 @@ function generateHTML (data) {
         My Team
       </h1>
     </hero>
+    
     <main class="m-2 d-flex">
-      <section class="card m-2">
-        <div class="card-header">
-          ${data.name}
-        </div>
-        <div class="card-body justify-content-">
-          ${data.title}<br>
-          ${data.github}<br>
-          ${data.otherinfo}<br>
-
-        </div>
-      </section>
-      <section class="card m-2">
-        <div class="card-header">
-          ${data.name}
-        </div>
-        <div class="card-body justify-content-">
-          ${data.title}<br>
-          ${data.github}<br>
-          ${data.otherinfo}<br>
-        </div>
-      </section>
+      ${cardCreator(data)}
     </main>
     <script src="../assets/js/script.js"></script>
   </body>
