@@ -16,7 +16,6 @@ function cardCreator (data){
           ${data[i].special}<br>
         </div>
       </section>`
-    // were going to add card html here
   }
   return ud;
 }
