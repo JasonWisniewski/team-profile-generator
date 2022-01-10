@@ -16,7 +16,7 @@ I learned about OOP and TDD in this project.  Node.js, Inquirer, and Jest were u
 clone the repo.
 
 ## Usage
-'(./assets/images/screenshot.png)`
+(./assets/images/screenshot.png)
 This can be used for any manager looking to have all of their employees information in one place.
 
 ## License
