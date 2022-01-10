@@ -15,7 +15,7 @@ const teamArray = [];
 console.log(teamArray);
 // create a function to write html 
 function writeToFile(htmlCode) {
-  fs.writeFileSync("./output/index.html", htmlCode)
+  fs.writeFileSync("./dist/index.html", htmlCode)
 }
 
 // create function to call inquirer
@@ -24,17 +24,17 @@ function employeeQ (extraPrompt, role){
     {
       type: 'input',
       name: 'name',
-      message: 'What is your name? (Required)'
+      message: 'What is the employee name? (Required)'
     },
     {
       type: 'input',
       name: 'email',
-      message: 'What is your work email address?'
+      message: 'What is the employee work email address?'
     },
     {
       type: 'input',
       name: 'id',
-      message: 'what is your employee id number?'
+      message: 'what is the employee id number?'
     }
   ])
   
@@ -131,11 +131,3 @@ function createEngineerQ (){
 }
 
 createManagerQ ()
-
-//const bob = new Character("bob", 30, 30, 25)
-//console.log(bob.isAlive())
-
-// get all the input from inquirer
-// const manager = new Manager(inquirerAnswers.name, etc)
-// push that into some kind of team array
-// send that team array to the component that generates the html
