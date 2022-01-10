@@ -17,6 +17,7 @@ clone the repo.
 
 ## Usage
 ![](./assets/images/screenshot.png)
+
 This can be used for any manager looking to have all of their employees information in one place.
 
 ## License
