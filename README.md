@@ -16,9 +16,16 @@ I learned about OOP and TDD in this project.  Node.js, Inquirer, and Jest were u
 clone the repo.
 
 ## Usage
+a walk through of the application can be found at.
+
+https://youtu.be/WCgfzjqsg38
+
 ![](./assets/images/screenshot.png)
 
 This can be used for any manager looking to have all of their employees information in one place.
+
+
+
 
 ## License
 MIT
@@ -45,7 +52,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-  
+
+##
 
 ## Questions
 github username: JasonWisniewski
